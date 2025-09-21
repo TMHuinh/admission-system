@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('application_status_logs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('application_id')->constrained('applications')->onDelete('cascade');
+            $table->string('application_id');
+            $table->foreign('application_id')
+                ->references('application_id')
+                ->on('applications')
+                ->onDelete('cascade');
             $table->string('from_status');
             $table->string('to_status');
             $table->string('changed_by');

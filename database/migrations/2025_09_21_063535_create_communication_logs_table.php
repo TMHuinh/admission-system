@@ -14,9 +14,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('communication_logs', function (Blueprint $table) {
+            // $table->id();
+            // $table->foreignId('application_id')
+            //     ->constrained('applications')
+            //     ->onDelete('cascade');
             $table->id();
-            $table->foreignId('application_id')
-                ->constrained('applications')
+            $table->string('application_id');
+            $table->foreign('application_id')
+                ->references('application_id')
+                ->on('applications')
                 ->onDelete('cascade');
             $table->string('action');
             $table->enum('template', ['payment_due', 'document_due', 'interview_reminder']);

@@ -7,13 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Application extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'application_id',
         'applicant_name',
         'programme',
         'intake',
         'status',
-        'payment_status'
+        'payment_status',
     ];
 
     public function statusLogs()
