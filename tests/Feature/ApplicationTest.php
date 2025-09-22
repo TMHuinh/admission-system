@@ -44,7 +44,8 @@ class ApplicationTest extends TestCase
             'payment_status' => 'paid',
         ];
 
-        $response = $this->putJson("/api/applications/{$app->id}", $updateData);
+        // $response = $this->putJson("/api/applications/{$app->id}", $updateData);
+        $response = $this->putJson("/api/applications/{$app->application_id}", $updateData);
 
         $response->assertStatus(200)
             ->assertJsonFragment([
