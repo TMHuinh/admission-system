@@ -28,6 +28,7 @@ return new class extends Migration
             $table->enum('template', ['payment_due', 'document_due', 'interview_reminder']);
             $table->string('sent_to');
             $table->timestamp('sent_at');
+            $table->timestamps();
         });
     }
 

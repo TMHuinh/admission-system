@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('to_status');
             $table->string('changed_by');
             $table->timestamp('changed_at');
+            $table->timestamps();
         });
     }
 

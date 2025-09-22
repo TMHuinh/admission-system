@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class ApplicationStatusLog extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'application_id',
+        'from_status',
+        'to_status',
+        'changed_by',
+        'changed_at',
+    ];
+
+    public function application()
+    {
+        return $this->belongsTo(Application::class, 'application_id', 'application_id');
+    }
 }
